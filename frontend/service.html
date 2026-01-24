@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/service.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Cobalt</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <div class="account-menu">
+                        <button class="account-btn" id="accountBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </button>
+                        <div class="account-dropdown" id="accountDropdown">
+                            <a href="#" id="settingsLink" class="dropdown-item" style="display: none;">Settings</a>
+                            <button class="dropdown-item" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="service-page">
+                <!-- Service Header -->
+                <div class="service-header">
+                    <h1 id="serviceName">Service Name</h1>
+                    <div class="service-actions">
+                        <button class="btn btn-icon" id="favoriteBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </button>
+                        <button class="btn btn-icon" id="shareBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="18" cy="5" r="3"></circle>
+                                <circle cx="6" cy="12" r="3"></circle>
+                                <circle cx="18" cy="19" r="3"></circle>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="service-content">
+                    <!-- Left Column -->
+                    <div class="service-left">
+                        <!-- Date and Time Selection -->
+                        <section class="booking-section">
+                            <h2>Select Date and Time</h2>
+                            <div class="date-time-selector">
+                                <div class="calendar-container">
+                                    <div id="calendar"></div>
+                                </div>
+                                <div class="time-slots" id="timeSlots">
+                                    <!-- Time slots will be loaded here -->
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Master Selection -->
+                        <section class="master-section">
+                            <h2>Select Master</h2>
+                            <div class="masters-list" id="mastersList">
+                                <!-- Masters will be loaded here -->
+                            </div>
+                        </section>
+
+                        <!-- Reviews -->
+                        <section class="reviews-section">
+                            <h2>Reviews</h2>
+                            <div class="reviews-filter">
+                                <button class="filter-btn active" data-rating="all">All</button>
+                                <button class="filter-btn" data-rating="5">5★</button>
+                                <button class="filter-btn" data-rating="4">4★</button>
+                                <button class="filter-btn" data-rating="3">3★</button>
+                            </div>
+                            <div class="reviews-list" id="reviewsList">
+                                <!-- Reviews will be loaded here -->
+                            </div>
+                        </section>
+
+                        <!-- Work Examples -->
+                        <section class="examples-section">
+                            <h2>Work Examples</h2>
+                            <div class="examples-gallery" id="examplesGallery">
+                                <!-- Examples will be loaded here -->
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="service-right">
+                        <!-- Price Card -->
+                        <div class="price-card">
+                            <div class="price-info">
+                                <span class="price-label">Price:</span>
+                                <span class="price-value" id="priceValue">€0</span>
+                            </div>
+                            <button class="btn btn-primary btn-block" id="bookBtn">Book Now</button>
+                        </div>
+
+                        <!-- Distance and Map -->
+                        <div class="map-card">
+                            <div class="distance-info">
+                                <span class="distance-label">Distance from you:</span>
+                                <span class="distance-value" id="distanceValue">-</span>
+                            </div>
+                            <div id="map" class="map-container"></div>
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="contact-card">
+                            <h3>Contact</h3>
+                            <button class="btn btn-outline btn-block" id="contactBtn">Contact Company</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close" id="closeContactModal">&times;</span>
+            <h2>Contact Company</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cobalt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/api.js?v=2"></script>
+    <script src="data/mock-data.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/maps.js?v=2"></script>
+    <script src="js/service.js?v=2"></script>
+</body>
+</html>
+

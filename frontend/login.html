@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Cobalt</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Cobalt</h1>
+                <p>Sign Up</p>
+            </div>
+            <div class="login-toggle">
+                <button class="toggle-btn active" data-type="client">Client</button>
+                <button class="toggle-btn" data-type="company">Company</button>
+            </div>
+            <form class="login-form" id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="regEmail" placeholder="Email or phone" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPasswordConfirm" placeholder="Confirm password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                <p class="login-link">Already have an account? <a href="index.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/api.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script>
+        // Toggle buttons functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtns = document.querySelectorAll('.toggle-btn');
+            
+            toggleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    toggleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // Registration form
+            document.getElementById('registerForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+                const passwordConfirm = document.getElementById('regPasswordConfirm').value;
+                const userType = document.querySelector('.toggle-btn.active').dataset.type;
+
+                if (password !== passwordConfirm) {
+                    alert('Passwords do not match');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert('Password must be at least 6 characters');
+                    return;
+                }
+
+                // Registration logic
+                try {
+                    const result = await auth.register(email, password, userType);
+                    if (result.success) {
+                        alert('Registration successful!');
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Registration error: ' + (result.error || 'Unknown error'));
+                    }
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    alert('Registration error: ' + error.message);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

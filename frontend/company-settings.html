@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Settings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Cobalt</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <div class="account-menu">
+                        <button class="account-btn" id="accountBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </button>
+                        <div class="account-dropdown" id="accountDropdown">
+                            <a href="#" id="settingsLink" class="dropdown-item active" style="display: none;">Settings</a>
+                            <button class="dropdown-item" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="settings-page">
+                <h1>Company Settings</h1>
+
+                <!-- Company Name -->
+                <section class="settings-section">
+                    <h2>Company Information</h2>
+                    <form id="companyInfoForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" id="companyName" placeholder="Enter company name" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+
+                <!-- Break Between Clients -->
+                <section class="settings-section">
+                    <h2>Break Between Clients</h2>
+                    <form id="breakSettingsForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Break Duration (minutes)</label>
+                            <input type="number" id="breakDuration" min="0" max="60" value="15" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+
+                <!-- Cancellation Policy -->
+                <section class="settings-section">
+                    <h2>Cancellation and Rescheduling Policy</h2>
+                    <form id="cancellationPolicyForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Minimum Time for Cancellation (hours)</label>
+                            <input type="number" id="minCancelHours" min="1" value="24" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cancellation Penalty (%)</label>
+                            <input type="number" id="cancelPenalty" min="0" max="100" value="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Allow Rescheduling</label>
+                            <input type="checkbox" id="allowReschedule" checked>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+
+                <!-- Working Hours -->
+                <section class="settings-section">
+                    <h2>Working Hours and Break</h2>
+                    <form id="workingHoursForm" class="settings-form">
+                        <div class="working-hours-grid" id="workingHoursGrid">
+                            <!-- Working hours for each day will be generated here -->
+                        </div>
+                        <div class="form-group">
+                            <label>Break Time</label>
+                            <div class="break-time">
+                                <input type="time" id="breakStart" required>
+                                <span>—</span>
+                                <input type="time" id="breakEnd" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+
+                <!-- Masters Editor -->
+                <section class="settings-section">
+                    <h2>Masters Editor</h2>
+                    <button class="btn btn-primary" id="addMasterBtn">Add Master</button>
+                    <div class="masters-editor" id="mastersEditor">
+                        <!-- Masters list will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Design Editor -->
+                <section class="settings-section">
+                    <h2>Home Page Design Editor</h2>
+                    <div class="design-editor">
+                        <div class="design-preview" id="designPreview">
+                            <div class="preview-header">
+                                <h3>Preview</h3>
+                            </div>
+                        </div>
+                        <form id="designForm" class="settings-form">
+                            <div class="form-group">
+                                <label>Primary Color</label>
+                                <input type="color" id="primaryColor" value="#B19CD9">
+                            </div>
+                            <div class="form-group">
+                                <label>Secondary Color</label>
+                                <input type="color" id="secondaryColor" value="#D4C5E8">
+                            </div>
+                            <div class="form-group">
+                                <label>Logo (URL)</label>
+                                <input type="url" id="logoUrl" placeholder="https://example.com/logo.png">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Design</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Tariff Selection -->
+                <section class="settings-section">
+                    <h2>Tariff Selection</h2>
+                    <div class="tariffs-grid" id="tariffsGrid">
+                        <!-- Tariff cards will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Client Blacklist -->
+                <section class="settings-section">
+                    <h2>Client Blacklist</h2>
+                    <div class="blacklist-section">
+                        <input type="text" id="blacklistSearch" placeholder="Search client..." class="search-input">
+                        <div class="blacklist-list" id="clientBlacklistList">
+                            <!-- Blacklisted clients will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Promotions -->
+                <section class="settings-section">
+                    <h2>Акции</h2>
+                    <button class="btn btn-primary" id="addPromotionBtn">Создать акцию</button>
+                    <div class="promotions-list" id="promotionsList">
+                        <!-- Promotions will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Billing Settings -->
+                <section class="settings-section">
+                    <h2>Billing Settings</h2>
+                    <form id="billingForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Billing Frequency</label>
+                            <select id="billingFrequency" required>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Automatic Tariff Deduction</label>
+                            <input type="checkbox" id="autoDeduction" checked>
+                        </div>
+                        <div class="form-group" id="deductionTypeGroup">
+                            <label>Deduction Type</label>
+                            <select id="deductionType">
+                                <option value="percentage">Percentage of Earnings</option>
+                                <option value="fixed">Fixed Amount</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="deductionValueGroup">
+                            <label id="deductionValueLabel">Percentage of Earnings</label>
+                            <input type="number" id="deductionValue" min="0" max="100" value="10" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Master Modal -->
+    <div class="modal" id="masterModal">
+        <div class="modal-content">
+            <span class="close" id="closeMasterModal">&times;</span>
+            <h2 id="masterModalTitle">Add Master</h2>
+            <form id="masterForm">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="masterName" required>
+                </div>
+                <div class="form-group">
+                    <label>Photo (URL)</label>
+                    <input type="url" id="masterPhoto">
+                </div>
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <input type="text" id="masterSpecialization" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Promotion Modal -->
+    <div class="modal" id="promotionModal">
+        <div class="modal-content">
+            <span class="close" id="closePromotionModal">&times;</span>
+            <h2>Create Promotion</h2>
+            <form id="promotionForm">
+                <div class="form-group">
+                    <label>Promotion Type</label>
+                    <select id="promotionType" required>
+                        <option value="visit_discount">Discount after N visits</option>
+                        <option value="percentage">Percentage Discount</option>
+                        <option value="fixed">Fixed Discount</option>
+                    </select>
+                </div>
+                <div class="form-group" id="visitCountGroup">
+                    <label>Number of Visits</label>
+                    <input type="number" id="visitCount" min="1" value="3">
+                </div>
+                <div class="form-group">
+                    <label>Discount Amount</label>
+                    <input type="number" id="promotionDiscount" min="0" max="100" required>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="promotionDescription" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cobalt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/api.js?v=2"></script>
+    <script src="data/mock-data.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/company-settings.js?v=2"></script>
+</body>
+</html>
+

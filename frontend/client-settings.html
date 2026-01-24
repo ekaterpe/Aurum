@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Settings</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Cobalt</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <div class="account-menu">
+                        <button class="account-btn" id="accountBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </button>
+                        <div class="account-dropdown" id="accountDropdown">
+                            <a href="#" id="settingsLink" class="dropdown-item active" style="display: none;">Settings</a>
+                            <button class="dropdown-item" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="settings-page">
+                <h1>Client Settings</h1>
+
+                <!-- Basic Settings -->
+                <section class="settings-section">
+                    <h2>Basic Settings</h2>
+                    <form id="basicSettingsForm" class="settings-form">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="example@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" id="address" placeholder="Enter address" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </section>
+
+                <!-- Calendar with Bookings -->
+                <section class="settings-section">
+                    <h2>My Bookings</h2>
+                    <div class="bookings-calendar">
+                        <div id="bookingsCalendar"></div>
+                    </div>
+                    <div class="bookings-list" id="bookingsList">
+                        <!-- Bookings will be loaded here -->
+                    </div>
+                </section>
+
+                <!-- Booking Actions -->
+                <div class="booking-actions" id="bookingActions" style="display: none;">
+                    <div class="booking-details" id="bookingDetails">
+                        <!-- Booking details will be shown here -->
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-outline" id="rescheduleBtn">Reschedule</button>
+                        <button class="btn btn-danger" id="cancelBtn">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Blacklist -->
+                <section class="settings-section">
+                    <h2>Company Blacklist</h2>
+                    <div class="blacklist-section">
+                        <div class="blacklist-list" id="blacklistList">
+                            <!-- Blacklisted companies will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Client Rating -->
+                <section class="settings-section">
+                    <h2>My Rating</h2>
+                    <div class="rating-display">
+                        <div class="rating-value">
+                            <span class="rating-number" id="clientRating">0.0</span>
+                            <div class="stars" id="clientStars">
+                                <!-- Stars will be generated here -->
+                            </div>
+                        </div>
+                        <div class="rating-history" id="ratingHistory">
+                            <!-- Rating history will be loaded here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reschedule Modal -->
+    <div class="modal" id="rescheduleModal">
+        <div class="modal-content">
+            <span class="close" id="closeRescheduleModal">&times;</span>
+            <h2>Reschedule Booking</h2>
+            <form id="rescheduleForm">
+                <div class="form-group">
+                    <label>New Date</label>
+                    <input type="date" id="newDate" required>
+                </div>
+                <div class="form-group">
+                    <label>New Time</label>
+                    <select id="newTime" required>
+                        <!-- Time options will be loaded here -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Reschedule</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cancel Modal -->
+    <div class="modal" id="cancelModal">
+        <div class="modal-content">
+            <span class="close" id="closeCancelModal">&times;</span>
+            <h2>Cancel Booking</h2>
+            <p>Are you sure you want to cancel this booking?</p>
+            <div class="modal-actions">
+                <button class="btn btn-outline" id="cancelCancelBtn">No</button>
+                <button class="btn btn-danger" id="confirmCancelBtn">Yes, Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cobalt. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js?v=2"></script>
+    <script src="js/api.js?v=2"></script>
+    <script src="data/mock-data.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/maps.js?v=2"></script>
+    <script src="js/client-settings.js?v=2"></script>
+</body>
+</html>
+

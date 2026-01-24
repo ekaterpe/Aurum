@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Search - Home</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Cobalt</h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="service.html" class="nav-link">Services</a>
+                    <div class="account-menu">
+                        <button class="account-btn" id="accountBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </button>
+                        <div class="account-dropdown" id="accountDropdown">
+                            <a href="#" id="settingsLink" class="dropdown-item" style="display: none;">Settings</a>
+                            <button class="dropdown-item" id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Login Section -->
+            <div class="login-section" id="loginSection">
+                <div class="login-toggle">
+                    <button class="toggle-btn active" data-type="client">Client</button>
+                    <button class="toggle-btn" data-type="company">Company</button>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="loginEmail" placeholder="Email or phone" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <p class="login-link">Don't have an account? <a href="login.html">Sign up</a></p>
+                </form>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section" id="searchSection" style="display: none;">
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search services...">
+                        <button class="voice-btn" id="voiceBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </button>
+                        <button class="search-btn" id="searchBtn">Search</button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All categories</option>
+                        <option value="beauty">Beauty</option>
+                        <option value="health">Health</option>
+                        <option value="repair">Repair</option>
+                        <option value="cleaning">Cleaning</option>
+                    </select>
+                    <select id="priceFilter" class="filter-select">
+                        <option value="">Any price</option>
+                        <option value="0-50">Up to €50</option>
+                        <option value="50-100">€50-€100</option>
+                        <option value="100+">From €100</option>
+                    </select>
+                    <select id="ratingFilter" class="filter-select">
+                        <option value="">Any rating</option>
+                        <option value="4+">4+ stars</option>
+                        <option value="3+">3+ stars</option>
+                    </select>
+                    <select id="distanceFilter" class="filter-select">
+                        <option value="">Any distance</option>
+                        <option value="1">Up to 1 km</option>
+                        <option value="5">Up to 5 km</option>
+                        <option value="10">Up to 10 km</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-section" id="servicesSection" style="display: none;">
+                <h2 class="section-title">Service Offers</h2>
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Cobalt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js?v=2"></script>
+    <script src="data/mock-data.js?v=2"></script>
+    <script src="js/auth.js?v=2"></script>
+    <script src="js/maps.js?v=2"></script>
+    <script src="js/voice.js?v=2"></script>
+    <script src="js/home.js?v=2"></script>
+</body>
+</html>
+
