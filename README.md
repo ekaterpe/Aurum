@@ -1,4 +1,3 @@
-# A digital platform that helps people easily find, compare, and book trusted everyday service providers in one place.
 ## Description of our project's idea
 Cobalt is an all-in-one digital platform designed to simplify access to everyday services. Many people struggle to find reliable service providers quickly, whether they need a haircut, home repair, cleaning, or other personal services. Our platform brings together service providers from multiple industries into one easy-to-use app. Users can search, compare, and book services based on their needs, location, availability, and reviews. The platform saves time, reduces stress, and creates new opportunities for service providers to reach customers. QuickFix is built for modern, busy people who value speed, convenience, and reliability in solving everyday tasks.
 ## What problem does our idea solve?
